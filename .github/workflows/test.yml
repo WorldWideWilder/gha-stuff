@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - run: apt-get install -y tree
+      # - run: apt-get install -y tree
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,16 +20,16 @@ jobs:
           # cache-dependency-path: "yarn.lock"
           # cache-read-only: ${{ github.ref != 'refs/heads/main' }}
           # restore-keys: |
-            # node-cache-${{ runner.os }}-${{ runner.arch }}-${{ runner.tool_cache }}-${{ hashFiles('**/yarn.lock') }}
+            # node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: Cache Yarn deps
         uses: actions/cache@v5
         with:
           path: '.cache'
-          key: node-cache-${{ runner.os }}-${{ runner.arch }}-${{ runner.tool_cache }}-${{ hashFiles('**/yarn.lock') }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            node-cache-${{ runner.os }}-${{ runner.arch }}-${{ runner.tool_cache }}-
+            node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
         run: yarn
-      - run: tree
+      - run: find . -maxdepth 2
       - name: Run Tests
         run: yarn test
