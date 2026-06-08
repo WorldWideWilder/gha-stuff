@@ -30,6 +30,8 @@ jobs:
             node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
         run: yarn
+      - run: pwd
       - run: find . -maxdepth 2
+      - run: find ~/ -maxdepth 2
       - name: Run Tests
         run: yarn test
