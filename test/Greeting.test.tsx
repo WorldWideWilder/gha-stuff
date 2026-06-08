@@ -8,8 +8,22 @@ test('loads and displays greeting', async () => {
   render(<Greeting title="Hello there!" />);
 
   // ACT
-  await screen.findByRole('heading');
+  await screen.findAllByRole('heading');
+  const headings = await screen.getAllByRole('heading')
 
   // ASSERT
-  expect(screen.getByRole('heading')).toHaveTextContent('Hello there!');
+  expect(headings[0]).toHaveTextContent('Hello there!');
+});
+
+test('loads and displays sub-greeting', async () => {
+  // ARRANGE
+  render(<Greeting title="Hello there!" subtitle="It does work, amazing!" />);
+
+  // ACT
+  await screen.findAllByRole('heading');
+  const headings = await screen.getAllByRole('heading')
+
+  // ASSERT
+  expect(headings[0]).toHaveTextContent('Hello there!');
+  expect(headings[1]).toHaveTextContent('It does work, amazing!');
 });
