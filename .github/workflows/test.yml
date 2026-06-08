@@ -15,11 +15,9 @@ jobs:
         with:
           node-version: 24
           always-auth: false
-      - name: Load Yarn Cache
-        uses: actions/setup-node@v4
-        with:
           cache: "yarn"
           cache-dependency-path: "yarn.lock"
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
       - name: Install npm deps
         run: yarn
       - name: Run Tests
