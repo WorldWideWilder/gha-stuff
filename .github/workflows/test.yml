@@ -16,6 +16,7 @@ jobs:
           node-version: 24
           always-auth: false
       - name: Load Yarn Cache
+        uses: actions/setup-node@v4
         with:
           cache: "yarn"
           cache-dependency-path: "yarn.lock"
