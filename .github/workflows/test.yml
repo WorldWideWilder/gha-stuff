@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: checkout@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          always-auth: false
+      - name: Load Yarn Cache
+        with:
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - name: Run Tests
+        run: yarn test
