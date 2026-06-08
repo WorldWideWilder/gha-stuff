@@ -24,14 +24,14 @@ jobs:
       - name: Cache Yarn deps
         uses: actions/cache@v5
         with:
-          path: 'node_modules'
+          path: '/home/runner/.cache'
           key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
         run: yarn
-      - run: pwd
-      - run: find . -maxdepth 2
-      - run: find ~/ -maxdepth 2
+      # - run: pwd
+      # - run: find . -maxdepth 2
+      # - run: find ~/ -maxdepth 2
       - name: Run Tests
         run: yarn test
