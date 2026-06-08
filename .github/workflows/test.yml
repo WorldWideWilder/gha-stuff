@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - run: apt-get install -y tree
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -29,5 +30,6 @@ jobs:
             node-cache-${{ runner.os }}-${{ runner.arch }}-${{ runner.tool_cache }}-
       - name: Install npm deps
         run: yarn
+      - run: tree
       - name: Run Tests
         run: yarn test
