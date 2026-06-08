@@ -17,7 +17,9 @@ jobs:
           always-auth: false
           cache: "yarn"
           cache-dependency-path: "yarn.lock"
-          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          # cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          restore-keys: |
+            node-cache-${{ runner.os }}-${{ runner.arch }}-${{ runner.tool_cache }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install npm deps
         run: yarn
       - name: Run Tests
