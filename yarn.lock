@@ -5220,6 +5220,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"frontend-admin@workspace:packages/frontend-admin":
+  version: 0.0.0-use.local
+  resolution: "frontend-admin@workspace:packages/frontend-admin"
+  dependencies:
+    "@babel/core": "npm:^7.29.0"
+    "@eslint/js": "npm:^10.0.1"
+    "@rolldown/plugin-babel": "npm:^0.2.3"
+    "@types/babel__core": "npm:^7.20.5"
+    "@types/node": "npm:^24.12.3"
+    "@types/react": "npm:^19.2.14"
+    "@types/react-dom": "npm:^19.2.3"
+    "@vitejs/plugin-react": "npm:^6.0.1"
+    babel-plugin-react-compiler: "npm:^1.0.0"
+    eslint: "npm:^10.3.0"
+    eslint-plugin-react-hooks: "npm:^7.1.1"
+    eslint-plugin-react-refresh: "npm:^0.5.2"
+    globals: "npm:^17.6.0"
+    react: "npm:^19.2.6"
+    react-admin: "npm:^5.14.7"
+    react-dom: "npm:^19.2.6"
+    typescript: "npm:~6.0.2"
+    typescript-eslint: "npm:^8.59.2"
+    vite: "npm:^8.0.12"
+  languageName: unknown
+  linkType: soft
+
 "frontend@workspace:packages/frontend":
   version: 0.0.0-use.local
   resolution: "frontend@workspace:packages/frontend"
@@ -5244,7 +5270,6 @@ __metadata:
     jsdom: "npm:^29.1.1"
     prop-types: "npm:^15.8.1"
     react: "npm:^19.2.6"
-    react-admin: "npm:^5.14.7"
     react-dom: "npm:^19.2.6"
     typescript: "npm:~6.0.2"
     typescript-eslint: "npm:^8.59.2"
