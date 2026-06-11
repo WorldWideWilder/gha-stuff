@@ -9571,6 +9571,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emotion@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "emotion@npm:11.0.0"
+  checksum: 10c0/273d4e0573c07e2fffcc5f8f0c9e35b9117be03c1317ec5b786a1dfaff6162d34e770c03ff0597d84909844f480aa3b5cb4017f38ee40db89296387abbf5af54
+  languageName: node
+  linkType: hard
+
 "encodeurl@npm:^2.0.0, encodeurl@npm:~2.0.0":
   version: 2.0.0
   resolution: "encodeurl@npm:2.0.0"
@@ -10792,6 +10799,7 @@ __metadata:
     "@types/react-dom": "npm:^19.2.3"
     "@vitejs/plugin-react": "npm:^6.0.1"
     babel-plugin-react-compiler: "npm:^1.0.0"
+    emotion: "npm:^11.0.0"
     eslint: "npm:^10.3.0"
     eslint-plugin-react-hooks: "npm:^7.1.1"
     eslint-plugin-react-refresh: "npm:^0.5.2"
