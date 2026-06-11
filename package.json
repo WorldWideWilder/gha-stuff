@@ -2,8 +2,6 @@
   "name": "gh-actions-cache-inquiry",
   "private": true,
   "workspaces": [
-    "packages/backend",
-    "packages/frontend",
-    "packages/frontend-admin"
+    "packages/*"
   ]
 }
