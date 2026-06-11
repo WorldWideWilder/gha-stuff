@@ -33,7 +33,7 @@ jobs:
         run: npm install -g corepack@latest
 
       - name: Install modern Yarn
-        run: corepack prepare yarn@4.5.0 --activate
+        run: corepack prepare yarn@4.16.0 --activate
 
       - name: Show Yarn version
         run: yarn --version
