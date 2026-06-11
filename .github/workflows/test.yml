@@ -25,7 +25,29 @@ jobs:
       #     key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
       #     restore-keys: |
       #       node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
+
+      - name: Show Yarn version
+        run: yarn --version
+
+      - name: Get path for Yarn Cache
+        id: yarn-cache-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn Cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
         run: yarn
       - name: Run Tests
         run: yarn test
+
+      - name: JS > Save Yarn Cache
+        if: github.ref == 'refs/heads/main' || github.head_ref == 'chore/GENAIRPQR-6182-Reduce-GHA-Cache-Size'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('yarn.lock') }}
