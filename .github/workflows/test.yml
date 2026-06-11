@@ -26,6 +26,15 @@ jobs:
       #     restore-keys: |
       #       node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
 
+      - name: Extract branch name
+        run: echo "${{ github.head_ref }}"
+
+      - name: Install latest Corepack
+        run: npm install -g corepack@latest
+
+      - name: Install modern Yarn
+        run: corepack prepare yarn@4.5.0 --activate
+
       - name: Show Yarn version
         run: yarn --version
 
@@ -46,7 +55,7 @@ jobs:
         run: yarn test
 
       - name: JS > Save Yarn Cache
-        if: github.ref == 'refs/heads/main' || github.head_ref == 'chore/GENAIRPQR-6182-Reduce-GHA-Cache-Size'
+        if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
         uses: actions/cache/save@v4
         with:
           path: ${{ steps.yarn-cache-path.outputs.dir }}
