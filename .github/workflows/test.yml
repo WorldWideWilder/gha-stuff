@@ -50,7 +50,7 @@ jobs:
           restore-keys: |
             node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
-        run: yarn
+        run: yarn install
       - name: Run Tests
         run: yarn test
         working-directory: ./packages/frontend
