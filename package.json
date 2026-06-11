@@ -1,7 +1,8 @@
 {
-  "name": "my-yarn-monorepo",
+  "name": "gh-actions-cache-inquiry",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/backend",
+    "packages/frontend"
   ]
 }

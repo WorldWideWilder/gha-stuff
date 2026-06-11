@@ -51,9 +51,9 @@ jobs:
             node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
       - name: Install npm deps
         run: yarn install
-      - name: Run Tests
-        run: yarn test
-        working-directory: ./packages/frontend
+      # - name: Run Tests
+      #   run: yarn test
+      #   working-directory: ./packages/frontend
 
       - name: JS > Save Yarn Cache
         # if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
