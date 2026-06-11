@@ -42,13 +42,13 @@ jobs:
         id: yarn-cache-path
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
-      # - name: Load Yarn Cache
-      #   uses: actions/cache/restore@v4
-      #   with:
-      #     path: ${{ steps.yarn-cache-path.outputs.dir }}
-      #     key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys: |
-      #       node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
+      - name: Load Yarn Cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
 
       - name: Install npm deps
         run: yarn install
@@ -56,9 +56,9 @@ jobs:
       #   run: yarn test
       #   working-directory: ./packages/frontend
 
-      # - name: JS > Save Yarn Cache
-      #   # if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
-      #   uses: actions/cache/save@v4
-      #   with:
-      #     path: ${{ steps.yarn-cache-path.outputs.dir }}
-      #     key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('yarn.lock') }}
+      - name: JS > Save Yarn Cache
+        # if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('yarn.lock') }}
