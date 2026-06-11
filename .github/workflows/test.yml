@@ -55,7 +55,7 @@ jobs:
         run: yarn test
 
       - name: JS > Save Yarn Cache
-        if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
+        # if: github.head_ref == 'main' || github.head_ref == 'other-dummy-branch'
         uses: actions/cache/save@v4
         with:
           path: ${{ steps.yarn-cache-path.outputs.dir }}
