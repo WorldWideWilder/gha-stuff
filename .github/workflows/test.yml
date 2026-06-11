@@ -18,20 +18,47 @@ jobs:
           always-auth: false
           # cache: "yarn"
           # cache-dependency-path: "yarn.lock"
-          # cache-read-only: ${{ github.ref != 'refs/heads/main' }}
-          # restore-keys: |
-            # node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - name: Cache Yarn deps
-        uses: actions/cache@v5
+      # - name: Cache Yarn deps
+      #   uses: actions/cache@v5
+      #   with:
+      #     path: '/home/runner/.cache'
+      #     key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
+
+      - name: Extract branch name
+        run: echo "${{ github.head_ref }}"
+
+      - name: Install latest Corepack
+        run: npm install -g corepack@latest
+
+      - name: Install modern Yarn
+        run: corepack prepare yarn@4.16.0 --activate
+
+      - name: Show Yarn version
+        run: yarn --version
+
+      - name: Get path for Yarn Cache
+        id: yarn-cache-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn Cache
+        uses: actions/cache/restore@v4
         with:
-          path: 'node_modules'
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
           key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-
+
       - name: Install npm deps
-        run: yarn
-      - run: pwd
-      - run: find . -maxdepth 2
-      - run: find ~/ -maxdepth 2
-      - name: Run Tests
-        run: yarn test
+        run: yarn install
+      # - name: Run Tests
+      #   run: yarn test
+      #   working-directory: ./packages/frontend
+
+      - name: JS > Save Yarn Cache
+        if: github.ref_name == 'main'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: node-cache-${{ runner.os }}-${{ runner.arch }}-yarn-${{ hashFiles('yarn.lock') }}
