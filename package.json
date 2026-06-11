@@ -13,6 +13,7 @@
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^19.2.6",
+    "react-admin": "^5.14.7",
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
