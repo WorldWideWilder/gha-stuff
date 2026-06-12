@@ -64,7 +64,7 @@ jobs:
       #   working-directory: ./packages/frontend
 
       - name: JS > Save Yarn Cache
-        if: github.ref_name == 'main'
+        # if: github.ref_name == 'main'
         uses: actions/cache/save@v5
         with:
           path: ${{ steps.yarn-cache-path.outputs.dir }}
