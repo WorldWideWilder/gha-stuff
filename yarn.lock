@@ -10163,6 +10163,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-image@npm:^56.0.11":
+  version: 56.0.11
+  resolution: "expo-image@npm:56.0.11"
+  dependencies:
+    sf-symbols-typescript: "npm:^2.2.0"
+  peerDependencies:
+    expo: "*"
+    react: "*"
+    react-native: "*"
+    react-native-web: "*"
+  peerDependenciesMeta:
+    react-native-web:
+      optional: true
+  checksum: 10c0/d156bda074c9770b86f941d430335d958e69107c8286faa57bd5dd94e49343edb7d1e4ac331b39b2abd3d6a5353a254b935c702d27ac97b51e5cb1c46012ece6
+  languageName: node
+  linkType: hard
+
 "expo-keep-awake@npm:~56.0.3":
   version: 56.0.3
   resolution: "expo-keep-awake@npm:56.0.3"
@@ -13268,6 +13285,7 @@ __metadata:
     "@apollo/link-context": "npm:^2.0.0-beta.3"
     "@react-native-picker/picker": "npm:2.11.4"
     expo: "npm:^56.0.4"
+    expo-image: "npm:^56.0.11"
     graphql: "npm:^15.0.0"
     react: "npm:19.2.3"
     react-dom: "npm:19.2.3"
@@ -15447,6 +15465,13 @@ __metadata:
   version: 1.2.0
   resolution: "setprototypeof@npm:1.2.0"
   checksum: 10c0/68733173026766fa0d9ecaeb07f0483f4c2dc70ca376b3b7c40b7cda909f94b0918f6c5ad5ce27a9160bdfb475efaa9d5e705a11d8eaae18f9835d20976028bc
+  languageName: node
+  linkType: hard
+
+"sf-symbols-typescript@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "sf-symbols-typescript@npm:2.2.0"
+  checksum: 10c0/3f3bbf33aaad19e619d6f169899b39e9fe9c5fd21f0d6d511100e36887606ad349109ddc6ff82933f2b8cbf437dd7105c2ae6b0059b291dc47f143b30c2074cc
   languageName: node
   linkType: hard
 
