@@ -10238,6 +10238,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-secure-store@npm:^56.0.4":
+  version: 56.0.4
+  resolution: "expo-secure-store@npm:56.0.4"
+  peerDependencies:
+    expo: "*"
+  checksum: 10c0/8f3c81e64dfd6a0300bdf8b172e2f95d9342e4fd818148803df88cc2be0dc9189c5fdc318c33b6f7c7b9015172d6268fd686d8f250a349c0fb2c993a7ef2f280
+  languageName: node
+  linkType: hard
+
 "expo-server@npm:^56.0.5":
   version: 56.0.5
   resolution: "expo-server@npm:56.0.5"
@@ -13306,6 +13315,7 @@ __metadata:
     "@react-native-picker/picker": "npm:2.11.4"
     expo: "npm:^56.0.4"
     expo-image: "npm:^56.0.11"
+    expo-secure-store: "npm:^56.0.4"
     expo-sqlite: "npm:^56.0.5"
     graphql: "npm:^15.0.0"
     react: "npm:19.2.3"
